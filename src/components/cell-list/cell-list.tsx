@@ -1,9 +1,9 @@
 import { useTypedSelector } from '../../hooks/use-typed-selector';
 
 const CellList: React.FC = () => {
-  const cellState = useTypedSelector((state) => state);
-
-  console.log({ cellState });
+  const cells = useTypedSelector(({ cells: { order, data } }) =>
+    order.map((id) => data[id])
+  );
 
   return <div>Cell List</div>;
 };
